@@ -1,0 +1,120 @@
+.site-footer {
+    background-color: #050A3A;
+    color: #fff;
+    padding: rem(50) rem(100);
+    width: 100%;
+    height: auto;
+    
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.25rem; // 20px
+
+        .footer-logo img {
+            max-width: 14.583rem; // 233px
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: space-between;
+            flex-grow: 1;
+            max-width: 37.5rem; // 600px
+            padding: 0 1.25rem; // 20px
+            text-align: right;
+            .contact-info {
+                flex: 1;
+                padding: 0 0.625rem; // 10px
+
+                p {
+                    margin: 0;
+                }
+
+                a {
+                    color: #fff;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.75rem; // 12px
+        padding: 0 1.25rem; // 20px
+
+        .social-links {
+            display: flex;
+
+            a {
+                color: #fff;
+                margin: 0 0.625rem; // 10px
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+// Media queries for responsiveness
+@media (max-width: 1200px) {
+    .site-footer {
+        .footer-content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            .footer-logo, .footer-contact {
+                flex: 1 1 100%;
+                max-width: none;
+                padding: 0;
+                margin-bottom: 1rem;
+            }
+
+            .footer-contact {
+                flex-direction: column;
+            }
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            text-align: center;
+
+            .social-links {
+                margin-top: 0.625rem; // 10px
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        .footer-content {
+            .footer-logo img {
+                max-width: 10rem; // Adjust logo size for smaller screens
+            }
+
+            .footer-contact .contact-info {
+                padding: 0.5rem 0; // Adjust padding for smaller screens
+            }
+        }
+
+        .footer-bottom {
+            font-size: 0.625rem; // 10px
+
+            .social-links {
+                margin-top: 0.625rem; // 10px
+            }
+        }
+    }
+}

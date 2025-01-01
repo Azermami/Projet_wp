@@ -1,0 +1,56 @@
+.search-results-container {
+    padding: 20px;
+    .content-area {
+        max-width: 1200px;
+        margin: 0 auto;
+        .site-main {
+            .page-header {
+                text-align: center;
+                margin-bottom: 30px;
+                .page-title {
+                    font-size: 2rem;
+                    span {
+                        color: #ff4fc0; /* Exemple de couleur */
+                    }
+                }
+            }
+            .search-results {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px;
+                justify-content: space-between;
+                article {
+                    padding: 20px;
+                    flex: 1 1 calc(33.333% - 20px);
+                    max-width: calc(33.333% - 20px);
+                    .entry-header {
+                        margin-bottom: 15px;
+                        .entry-title {
+                            font-size: 1.25rem;
+                            margin: 0;
+                            a {
+                                color: #333;
+                                text-decoration: none;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                        .entry-meta {
+                            font-size: 0.875rem;
+                            color: #999;
+                            .posted-on,
+                            .category {
+                                display: block;
+                            }
+                        }
+                    }
+                    .entry-summary {
+                        font-size: 1rem;
+                        color: #666;
+                    }
+                }
+            }
+        }
+    }
+}

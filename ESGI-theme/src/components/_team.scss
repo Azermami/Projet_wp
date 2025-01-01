@@ -1,0 +1,35 @@
+.team-section {
+    padding: rem(50) 0;
+
+    h2 {
+        @include heading2;
+        margin-bottom: rem(30);
+    }
+
+    .team-members {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: rem(47);
+    }
+
+    .team-member {
+        text-align: center;
+        max-width: rem(200);
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h3 {
+            margin: rem(10) 0 rem(5);
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin: rem(5) 0;
+            font-size: 1rem;
+        }
+    }
+}
