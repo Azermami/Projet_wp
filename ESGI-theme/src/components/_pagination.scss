@@ -1,0 +1,35 @@
+.pagination {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 20px 0;
+    font-family: Arial, sans-serif; /* Assurez-vous d'utiliser une police propre */
+    
+}
+
+.pagination a, .pagination span {
+    background-color: white;
+    color: var(--main-color); /* Couleur du texte */
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid transparent; /* Bordure par défaut transparente */
+    border-radius: 0px;
+    text-decoration: none;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #e6e6e6; /* Couleur de fond au survol */
+    border-color: #ccc; /* Bordure au survol */
+}
+
+.pagination .current {
+    background-color: var(--main-color); /* Couleur de fond pour la page actuelle */
+    color: #fff; /* Couleur du texte pour la page actuelle */
+    border: 1px solid var(--main-color); /* Bordure pour la page actuelle */
+}
+
+.pagination .dots {
+    padding: 10px 15px;
+    color: var(--main-color); /* Couleur des points de suspension */
+}

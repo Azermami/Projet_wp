@@ -1,0 +1,11 @@
+.tag-links{
+    @include flexbox(row, nowrap, flex-start, center, #{rem(30)});
+    gap: rem(10);
+    a{
+        color: var(--text-color-tag);
+        background-color:var(--background-tag);
+        text-decoration: none;
+        padding: rem(7);
+        font-size: rem(16) !important;
+    }
+}

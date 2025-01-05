@@ -1,0 +1,67 @@
+@font-face {
+	font-family: 'Muli';
+	src: url('./assets/fonts/muli/Muli.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Muli';
+	src: url('./assets/fonts/muli/Muli-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+@mixin heading1{
+	font-family: 'Muli';
+	font-size: rem(48);
+	line-height: rem(98.44);
+	color: var(--main-color);
+	font-weight: 600;
+}
+
+@mixin heading2{
+	font-family: 'Muli';
+	font-size: rem(40);
+	line-height: rem(79.06);
+	color: var(--main-color);
+	font-weight: 600;
+	letter-spacing: rem(3);
+}
+
+@mixin heading3{
+	font-family: 'Muli';
+	font-size: rem(32);
+	line-height: rem(58.98);
+	color: var(--main-color);
+	font-weight: 600;
+	
+}
+
+@mixin heading4{
+	font-family: 'Muli';
+	font-size: rem(24);
+	line-height: rem(41.02);
+	color: var(--main-color);
+	font-weight: bold;
+	
+}
+
+@mixin heading5{
+	font-family: 'Muli';
+	font-size: rem(16);
+	line-height: rem(41.02);
+	color: var(--main-color);
+	font-weight: 400;
+	
+}
+
+@mixin heading6{
+	font-family: 'muli';
+	font-size: rem(8);
+	line-height: rem(23.44);
+	color: var(--main-color);
+	font-weight: 400;
+	
+}

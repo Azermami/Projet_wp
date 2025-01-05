@@ -1,0 +1,87 @@
+:root {
+	--main-color: #050A3A;
+	--white: #fff;
+	--black: #000;
+	--grey: #555;
+	--gret-comment:#F9F9F9;
+	--bg-color: var(--white);
+	--text-color: var(--black);
+	--text-color-comment:#8A8A8A;
+	--text-color-recent-post:#8A8A8A;
+	--background-tag:#f8f8f8;
+	--text-color-tag:#969696;
+	--text-color-date-recent-post:#ADADAD;
+	;
+
+}
+*{
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+h1{
+	@include heading1;
+}
+
+h2{
+	@include heading2;
+}
+
+h3{
+	@include heading3;
+}
+
+h4{
+	@include heading4;
+}
+
+h5{
+	@include heading5;
+}
+
+h6{
+	@include heading6;
+}
+
+
+body {
+	font-family: 'Muli', sans-serif;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	display: flex;
+	flex-direction: column;
+
+	&.dark {
+		--bg-color: var(--black);
+		--text-color: var(--white);
+	}
+}
+
+#content {
+	flex: 1;
+}
+
+img {
+	max-width: 100%;
+}
+
+svg {
+	path {
+		fill: currentColor;
+	}
+
+	&:hover {
+		path {
+			fill: var(--main-color);
+		}
+	}
+}
+
+.home-title h1 {
+	line-height: 1.2em;
+}
