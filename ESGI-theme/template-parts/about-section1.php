@@ -1,4 +1,3 @@
-<div class="about-container">
 <div class="about-header">
         <div class="header-content">
             <div class="header-image">
@@ -15,4 +14,3 @@
             </div>
         </div>
     </div>
-</div>
