@@ -1,6 +1,5 @@
 <div class="about-container">
     
-
     <div class="about-content">
         <div class="about-image">
             <?php if (get_theme_mod('about_image')) : ?>

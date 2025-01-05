@@ -3,43 +3,26 @@
     flex-direction: column;
     align-items: center;
     padding: 50px 0;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-
-// .about-section {
-//     text-align: center;
-//     padding: 0 0 20px;
-//     width: 100%;
-
-//     h2 {
-//         @include heading2;
-//         margin-bottom: 20px;
-//     }
-
-//     p {
-//         font-size: 1.2rem;
-//         max-width: rem(573); // Ajustez cette valeur selon vos besoins pour limiter la largeur du texte
-//         margin: 0 auto; // Centre le paragraphe horizontalement
-//     }
-// }
 
 .about-content {
     display: flex;
     flex-direction: row;
     width: 100%;
+    margin-top: -100px;
 }
 
 .about-image {
     flex: 0 0 auto;
-    text-align: left; // Alignement de l'image à gauche
-    margin-right: 185px; // Espace entre l'image et le contenu
+    text-align: left;
+    margin-right: 185px;
     margin-left: -170px;
 
     img {
-        width: 100%;
+        width: 80%;
         height: auto;
-        // max-width: 660px; // Limite la largeur de l'image
-        // max-height: 990px; // Limite la hauteur de l'image
-        // object-fit: cover; // Maintient les proportions de l'image
     }
 }
 
@@ -48,7 +31,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 20px;
 
     .who-we-are,
     .our-vision,
