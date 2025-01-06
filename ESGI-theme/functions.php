@@ -31,45 +31,53 @@ function add_file_types_to_uploads($file_types) {
     return array_merge($file_types, $new_filetypes);
 }
 
-// Customizer pour les composants répétitives
-add_action('customize_register', 'esgi_repeated_component_customize_register');
-function esgi_repeated_component_customize_register($wp_customize) {
-    $wp_customize->add_panel('esgi_component_panel', [
-        'title' => __('Composants', 'ESGI'),
-        'description' => __('Gérez les composants répétitifs ici.'),
-        'priority' => 100,
-    ]);
+add_action('customize_register', 'mytheme_customize_register_partners');
+function mytheme_customize_register_partners($wp_customize) {
+    // Crée une section pour gérer les partenaires
+    $wp_customize->add_section('mytheme_partners_section', array(
+        'title'       => __('Partenaires', 'mytheme'),
+        'description' => __('Gérez ici l’affichage des logos de partenaires.', 'mytheme'),
+        'priority'    => 160,
+    ));
 
-    // Section Partenaires
-    $wp_customize->add_section('esgi_partners_section', [
-        'title' => __('Partenaires', 'ESGI'),
-        'description' => __('Gérez les partenaires ici.'),
-        'panel' => 'esgi_component_panel',
-        'priority' => 10,
-    ]);
+    // On veut 6 partenaires
+    $max_partners = 6;
 
-    $wp_customize->add_setting('partner_main_title', [
-        'type' => 'theme_mod',
-        'capability' => 'edit_theme_options',
-        'default' => '',
-        'transport' => 'refresh',
-        'sanitize_callback' => 'sanitize_text_field',
-    ]);
+    // Pour chaque partenaire, on déclare un setting/control (logo + URL)
+    for ($i = 1; $i <= $max_partners; $i++) {
 
-    for ($i = 1; $i <= 6; $i++) {
-        $wp_customize->add_setting("partner_logo_$i", [
-            'type' => 'theme_mod',
-            'capability' => 'edit_theme_options',
-            'default' => '',
-            'transport' => 'refresh',
+        // Logo
+        $wp_customize->add_setting("partner_logo_$i", array(
+            'type'              => 'theme_mod',
+            'capability'        => 'edit_theme_options',
+            'default'           => '',
+            'transport'         => 'refresh',
             'sanitize_callback' => 'esc_url_raw',
-        ]);
+        ));
 
-        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "partner_logo_$i", [
-            'label' => __("Logo Partenaire $i", 'ESGI'),
-            'section' => 'esgi_partners_section',
-        ]));
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "partner_logo_$i", array(
+            'label'    => sprintf(__('Logo Partenaire %d', 'mytheme'), $i),
+            'section'  => 'mytheme_partners_section',
+            'settings' => "partner_logo_$i",
+        )));
+
+        // URL du partenaire (optionnel, si vous souhaitez un lien cliquable)
+        $wp_customize->add_setting("partner_url_$i", array(
+            'type'              => 'theme_mod',
+            'capability'        => 'edit_theme_options',
+            'default'           => '',
+            'transport'         => 'refresh',
+            'sanitize_callback' => 'esc_url_raw',
+        ));
+
+        $wp_customize->add_control("partner_url_$i", array(
+            'label'    => sprintf(__('Lien Partenaire %d', 'mytheme'), $i),
+            'section'  => 'mytheme_partners_section',
+            'settings' => "partner_url_$i",
+            'type'     => 'url',
+        ));
     }
+
 
     // Section Équipe
     $wp_customize->add_section('esgi_team_section', [
@@ -921,3 +929,46 @@ function esgi_create_default_pages() {
     }
 }
 add_action('after_switch_theme', 'esgi_create_default_pages');
+
+function esgi_theme_customize_register($wp_customize) {
+  $wp_customize->add_section('esgi_theme_services_section', array(
+    'title'       => __('Services', 'esgi-theme'),
+    'priority'    => 30,
+  ));
+
+  // 1) Le titre principal Our Services.
+  $wp_customize->add_setting('services_text', array(
+    'default'           => 'Our Services.',
+    'sanitize_callback' => 'sanitize_text_field'
+  ));
+  $wp_customize->add_control('services_text', array(
+    'label'   => __('Main Services Title', 'esgi-theme'),
+    'section' => 'esgi_theme_services_section',
+    'type'    => 'text'
+  ));
+
+  // 2) Le titre "Corp. Parties"
+  $wp_customize->add_setting('services_corp_parties_title', array(
+    'default'           => 'Corp. Parties',
+    'sanitize_callback' => 'sanitize_text_field'
+  ));
+  $wp_customize->add_control('services_corp_parties_title', array(
+    'label'   => __('Corp. Parties Title', 'esgi-theme'),
+    'section' => 'esgi_theme_services_section',
+    'type'    => 'text'
+  ));
+
+  // 3) Le texte/description "Specializing in..."
+  $wp_customize->add_setting('services_corp_parties_text', array(
+    'default'           => 'Specializing in the creation of exceptional events...',
+    'sanitize_callback' => 'wp_kses_post'
+  ));
+  $wp_customize->add_control('services_corp_parties_text', array(
+    'label'   => __('Corp. Parties Description', 'esgi-theme'),
+    'section' => 'esgi_theme_services_section',
+    'type'    => 'textarea'
+  ));
+
+  // 4) etc. pour les images, service_title, etc.
+}
+add_action('customize_register', 'esgi_theme_customize_register');
